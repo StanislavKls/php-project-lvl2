@@ -1,0 +1,23 @@
+{
+    "name": "hexlet/code",
+    "description": "Second project on Hexlet",
+    "type": "project",
+    "license": "gnu gpl",
+    "authors": [
+        {
+            "name": "Stanislav Kletsov",
+            "email": "klecov@gmail.com"
+        }
+    ],
+    "require": {
+        "docopt/docopt": "^1.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "bin": [
+        "bin/gendiff"
+      ],
+
+      "scripts": {
+        "phpcs": "phpcs"
+    }
+}
