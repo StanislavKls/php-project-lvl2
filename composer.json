@@ -17,9 +17,6 @@
     "bin": [
         "bin/gendiff"
       ],
-    "scripts": {
-        "phpcs": "phpcs"
-    },
     "autoload": {
         "files": [
             "src/Core.php",
@@ -27,6 +24,8 @@
             "src/Render.php",
             "src/Differ.php"
         ]
+    },
+    "scripts": {
+        "phpcs": "phpcs"
     }
-
 }

@@ -9,7 +9,7 @@ function makeDataForRender($data1, $data2)
     $keys = union(array_keys($data1), array_keys($data2));
     sort($keys);
 
-    $result = array_map(function($key) use ($data1, $data2) {
+    $result = array_map(function ($key) use ($data1, $data2) {
         if (!isset($data1[$key])) {
             return [
                 'key' => $key,

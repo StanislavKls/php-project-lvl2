@@ -26,4 +26,3 @@ $firstFile  = $args['<firstFile>'];
 $secondFile = $args['<secondFile>'];
 
 echo compareFile($firstFile, $secondFile);
-
