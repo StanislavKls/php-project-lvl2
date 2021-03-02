@@ -11,13 +11,22 @@
     ],
     "require": {
         "docopt/docopt": "^1.0",
-        "squizlabs/php_codesniffer": "^3.5"
+        "squizlabs/php_codesniffer": "^3.5",
+        "funct/funct": "^1.5"
     },
     "bin": [
         "bin/gendiff"
       ],
-
-      "scripts": {
+    "scripts": {
         "phpcs": "phpcs"
+    },
+    "autoload": {
+        "files": [
+            "src/Core.php",
+            "src/PlaneCompare.php",
+            "src/Render.php",
+            "src/Differ.php"
+        ]
     }
+
 }
