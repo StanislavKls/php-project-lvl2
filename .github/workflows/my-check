@@ -1,7 +1,12 @@
 name: My-check
 
-on:
-  - push
+on: 
+  push:
+    branches:
+      -main
+  pull_request:
+    branches:
+      -main
   
 jobs:
   build:
@@ -17,5 +22,8 @@ jobs:
       - name: Inastall
         run: make install
       - name: Run Linter
-        run: make lint
+        run: make linter
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
