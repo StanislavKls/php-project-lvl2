@@ -21,7 +21,7 @@ jobs:
       - name: Inastall
         run: make install
       - name: Run Linter
-        run: make linter
+        run: make lint
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
