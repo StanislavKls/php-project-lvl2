@@ -1,7 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-
+    /**
+    * @covers ::\Differ\Differ\genDiff()
+    */
 class DifferTest extends TestCase
 {
     private function getPath($file)
