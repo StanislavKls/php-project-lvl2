@@ -26,14 +26,11 @@ jobs:
       - name: Run test
         run: make test
       - name: Run test & publish code coverage
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: '12'
-      - uses: paambaati/codeclimate-action@v2.6.0
+        uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMAT }}
         with:
           coverageCommand: make test-coverage
           coverageLocations: ${{github.workplace}}/build/logs/clover.xml:clover
+          debug: true
           debug: true
