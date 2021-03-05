@@ -7,4 +7,4 @@ lint:
 test:
 	composer run-script test
 test-coverage:
-	composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
+	composer run-script --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
