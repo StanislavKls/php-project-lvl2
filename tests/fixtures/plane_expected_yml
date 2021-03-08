@@ -1,0 +1,8 @@
+{
+    boolean: true
+  - integer: 40
+  + integer: 25
+    float: 25.0
+  + new_string: new value
+  - string: "25"
+}

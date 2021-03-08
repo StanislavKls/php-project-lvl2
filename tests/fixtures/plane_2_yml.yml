@@ -1,0 +1,4 @@
+integer: 25
+float: 25.0
+boolean: true
+new_string: new value

@@ -2,7 +2,7 @@
 
 namespace Differ\Core;
 
-use function Differ\PlaneCompare\makeDataForRender;
+use function Differ\Parsers\makeDataForRenderPlaneJSON;
 use function Differ\Render\renderPlane;
 
 const STORAGE_DIR = __DIR__ . "/../";
@@ -11,7 +11,7 @@ function compareFile(string $file1, string $file2): string
 {
     $fileForCompare1 = fileToData($file1);
     $fileForCompare2 = fileToData($file2);
-    return renderPlane(makeDataForRender($fileForCompare1, $fileForCompare2));
+    return renderPlane(makeDataForRenderPlaneJSON($fileForCompare1, $fileForCompare2));
 }
 function fileToData(string $path): array
 {

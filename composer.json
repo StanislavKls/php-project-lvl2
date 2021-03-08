@@ -20,7 +20,7 @@
     "autoload": {
         "files": [
             "src/Core.php",
-            "src/PlaneCompare.php",
+            "src/Parsers.php",
             "src/Render.php",
             "src/Differ.php"
         ]
