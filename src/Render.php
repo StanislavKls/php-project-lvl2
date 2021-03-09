@@ -26,14 +26,13 @@ function render(array $data, $deep = 1, $replacer = ' '): string
         $value = stringify($item['value'], $deep);
         return "{$base_space}{$sign[$item['status']]} {$key}: {$value}";
     }, $data);
-    
-    return implode("\n", $arr);//"{\n" . implode("\n", $arr) . "\n $space}";
+    return implode("\n", $arr);
 }
 
 function stringify($value, $deep = 1)
 {
-    if (is_null($value)) {
-        return 'null';
+    if ($value === null) {
+        return "null";
     }
     if (is_bool($value)) {
         return $value ? "true" : "false";
@@ -44,17 +43,17 @@ function stringify($value, $deep = 1)
     }
 
     $keys = array_keys(get_object_vars($value));
-    $space = str_repeat(' ', ($deep + 1) * 4);
-    $bracketIndent = str_repeat(' ', $deep * 4);
+    $baseSpace = str_repeat(' ', ($deep + 1) * 4);
+    $space = str_repeat(' ', $deep * 4);
 
-    $arr = array_map(function ($key) use ($value, $space, $deep) {
+    $arr = array_map(function ($key) use ($value, $baseSpace, $deep) {
         $formattedValue = stringify($value->$key, $deep + 1);
-        return "{$space}{$key}: {$formattedValue}";
+        return "{$baseSpace}{$key}: {$formattedValue}";
     }, $keys);
 
     $str = implode("\n", $arr);
 
-    return "{\n{$str}\n{$bracketIndent}}";
+    return "{\n{$str}\n{$space}}";
 }
 
 function finallyRender($value): string

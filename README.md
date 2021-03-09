@@ -6,3 +6,6 @@
 
 Compare plane json files
 [![asciicast](https://asciinema.org/a/chJpoVRgcLtPfidxIqA9hrmkT.svg)](https://asciinema.org/a/chJpoVRgcLtPfidxIqA9hrmkT)
+
+Compare nested json files
+[![asciicast](https://asciinema.org/a/s9azSAbm4iaPmFVt6Dnt5z9OW.svg)](https://asciinema.org/a/s9azSAbm4iaPmFVt6Dnt5z9OW)

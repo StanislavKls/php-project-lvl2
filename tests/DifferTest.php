@@ -30,4 +30,13 @@ class DifferTest extends TestCase
         $expect = file_get_contents(realpath($this->getPath("plane_expected_yml")));
         $this->assertEquals($expect, $actual);
     }
+     /**
+     * @coversNothing
+     */
+    public function testGendiffPlaneTree()
+    {
+        $actual = \Differ\Differ\genDiff($this->getPath("tree_1_yml.yml"), $this->getPath("tree_2_yml.yml"));
+        $expect = file_get_contents(realpath($this->getPath("tree_yml_expected")));
+        $this->assertEquals($expect, $actual);
+    }
 }

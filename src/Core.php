@@ -13,7 +13,6 @@ function compareFile(string $file1, string $file2)//: string
 {
     $fileForCompare1 = fileToData($file1);
     $fileForCompare2 = fileToData($file2);
-    //print_r(buildDiff($fileForCompare1, $fileForCompare2));
     return finallyRender(buildDiff($fileForCompare1, $fileForCompare2));
 }
 function fileToData(string $path)
@@ -29,6 +28,5 @@ function fileToData(string $path)
     if ($file === null) {
         throw new \Exception("Data not found");
     }
-    print_r($file);
     return $file;
 }

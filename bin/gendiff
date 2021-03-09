@@ -25,4 +25,4 @@ $args = \Docopt::handle($doc);
 $firstFile  = $args['<firstFile>'];
 $secondFile = $args['<secondFile>'];
 
-//echo compareFile($firstFile, $secondFile);
+echo compareFile($firstFile, $secondFile);

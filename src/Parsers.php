@@ -10,14 +10,14 @@ function buildDiff($data1, $data2)
     sort($keys);
 
     return array_map(function ($key) use ($data1, $data2) {
-        if (!isset($data1->$key)) {
+        if (!property_exists($data1, $key)) {
             return [
                 'key' => $key,
                 'value' => $data2->$key,
                 'status' => 'added'
             ];
         }
-        if (!isset($data2->$key)) {
+        if (!property_exists($data2, $key)) {
             return [
                 'key' => $key,
                 'value' => $data1->$key,
@@ -29,7 +29,7 @@ function buildDiff($data1, $data2)
                 'key' => $key,
                 'value' => buildDiff($data1->$key, $data2->$key),
                 'status' => 'nested'
-            ];           
+            ];
         }
         if ($data1->$key !== $data2->$key) {
             return [
