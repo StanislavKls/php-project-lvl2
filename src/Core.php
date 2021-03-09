@@ -4,6 +4,7 @@ namespace Differ\Core;
 
 use function Differ\Parsers\makeDataForRenderPlaneJSON;
 use function Differ\Render\renderPlane;
+use Symfony\Component\Yaml\Yaml;
 
 const STORAGE_DIR = __DIR__ . "/../";
 
@@ -17,7 +18,12 @@ function fileToData(string $path): array
 {
     $file = file_exists(realpath($path)) ? file_get_contents($path) :
                                            file_get_contents(realpath(STORAGE_DIR .  $path));
-    $file = json_decode($file, true);
+    
+    if (pathinfo($path)['extension'] === 'json') {
+        $file = json_decode($file, true);
+    } elseif (pathinfo($path)['extension'] === 'yaml' OR pathinfo($path)['extension'] === 'yml') {
+        $file = Yaml::parse($file);
+    }
     if ($file === null) {
         throw new \Exception("Data not found");
     }

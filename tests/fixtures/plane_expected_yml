@@ -1,8 +1,8 @@
 {
     boolean: true
+    float: 25.03
   - integer: 40
   + integer: 25
-    float: 25.0
   + new_string: new value
-  - string: "25"
+  - string: 25
 }

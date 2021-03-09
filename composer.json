@@ -12,7 +12,8 @@
     "require": {
         "docopt/docopt": "^1.0",
         "squizlabs/php_codesniffer": "^3.5",
-        "funct/funct": "^1.5"
+        "funct/funct": "^1.5",
+        "symfony/yaml": "^5.2"
     },
     "bin": [
         "bin/gendiff"
