@@ -4,7 +4,7 @@ namespace Differ\Parsers;
 
 use function Funct\Collection\union;
 
-function makeDataForRenderPlaneJSON($data1, $data2)
+function buildDiff($data1, $data2)
 {
     $keys = union(array_keys(get_object_vars($data1)), array_keys(get_object_vars($data2)));
     sort($keys);
@@ -23,6 +23,13 @@ function makeDataForRenderPlaneJSON($data1, $data2)
                 'value' => $data1->$key,
                 'status' => 'deleted'
             ];
+        }
+        if (is_object($data1->$key) && is_object($data2->$key)) {
+            return [
+                'key' => $key,
+                'value' => buildDiff($data1->$key, $data2->$key),
+                'status' => 'nested'
+            ];           
         }
         if ($data1->$key !== $data2->$key) {
             return [

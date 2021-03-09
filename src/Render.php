@@ -2,23 +2,63 @@
 
 namespace Differ\Render;
 
-function renderPlane(array $data): string
+function render(array $data, $deep = 1, $replacer = ' '): string
 {
     $sign = ['added' => "+", 'deleted' => "-", 'equally' => " "];
-    $base_space = "    ";
+    $space = str_repeat($replacer, $deep * 4);
+    $base_space = str_repeat($replacer, ($deep * 4) - 2);
 
-    $arr = array_map(function ($item) use ($sign, $base_space) {
+    $arr = array_map(function ($item) use ($sign, $base_space, $deep, $space) {
+        $key = $item['key'];
+
         if ($item['status'] === 'modifed') {
-            $item['valueBefore'] = is_bool($item['valueBefore']) ?
-                                    var_export($item['valueBefore'], true) : $item['valueBefore'];
-            $item['valueAfter'] = is_bool($item['valueAfter']) ?
-                                    var_export($item['valueAfter'], true) : $item['valueAfter'];
+            $valueBefore = stringify($item['valueBefore'], $deep);
+            $valueAfter = stringify($item['valueAfter'], $deep);
 
-            return "{$base_space}{$sign['deleted']} {$item['key']}: {$item['valueBefore']}\n" .
-            "{$base_space}{$sign['added']} {$item['key']}: {$item['valueAfter']}";
+            return "{$base_space}{$sign['deleted']} {$key}: {$valueBefore}\n" .
+            "{$base_space}{$sign['added']} {$key}: {$valueAfter}";
         }
-        $item['value'] = is_bool($item['value']) ? var_export($item['value'], true) : $item['value'];
-        return "{$base_space}{$sign[$item['status']]} {$item['key']}: {$item['value']}";
+
+        if ($item['status'] === 'nested') {
+            $children  = render($item['value'], $deep + 1);
+            return "{$base_space}  $key: {\n{$children}\n{$space}}";
+        }
+        $value = stringify($item['value'], $deep);
+        return "{$base_space}{$sign[$item['status']]} {$key}: {$value}";
     }, $data);
-    return "{\n" . implode("\n", $arr) . "\n}\n";
+    
+    return implode("\n", $arr);//"{\n" . implode("\n", $arr) . "\n $space}";
+}
+
+function stringify($value, $deep = 1)
+{
+    if (is_null($value)) {
+        return 'null';
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+
+    if (!is_object($value) && !is_array($value)) {
+        return $value;
+    }
+
+    $keys = array_keys(get_object_vars($value));
+    $space = str_repeat(' ', ($deep + 1) * 4);
+    $bracketIndent = str_repeat(' ', $deep * 4);
+
+    $arr = array_map(function ($key) use ($value, $space, $deep) {
+        $formattedValue = stringify($value->$key, $deep + 1);
+        return "{$space}{$key}: {$formattedValue}";
+    }, $keys);
+
+    $str = implode("\n", $arr);
+
+    return "{\n{$str}\n{$bracketIndent}}";
+}
+
+function finallyRender($value): string
+{
+    $result = render($value);
+    return "{\n{$result}\n}\n";
 }
