@@ -9,13 +9,13 @@ use function Differ\Render\render;
 
 const STORAGE_DIR = __DIR__ . "/../";
 
-function compareFile(string $file1, string $file2, $format): string
+function compareFile($file1, $file2, $format)
 {
     $fileForCompare1 = fileToData($file1);
     $fileForCompare2 = fileToData($file2);
     return render(buildDiff($fileForCompare1, $fileForCompare2), $format);
 }
-function fileToData(string $path): object
+function fileToData($path)
 {
     $file = file_get_contents(realpath($path));
     $extension = pathinfo($path, PATHINFO_EXTENSION);

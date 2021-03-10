@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Stylish;
 
-function render(array $data, $deep = 1, $replacer = ' '): string
+function render(array $data, $deep = 1, $replacer = ' ')
 {
     $sign = ['added' => "+", 'deleted' => "-", 'equally' => " "];
     $space = str_repeat($replacer, $deep * 4);

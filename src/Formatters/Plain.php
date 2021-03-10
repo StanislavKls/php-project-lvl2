@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Plain;
 
-function renderPlain($data, $children = []): string
+function renderPlain($data, $children = [])
 {
     $filtredData = array_filter($data, fn($item) => $item['status'] !== 'equally');
 

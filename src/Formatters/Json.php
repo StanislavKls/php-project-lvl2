@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Json;
 
-function renderToJson($data): string
+function renderToJson($data)
 {
     return json_encode($data);
 }
