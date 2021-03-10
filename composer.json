@@ -23,7 +23,9 @@
             "src/Core.php",
             "src/Parsers.php",
             "src/Render.php",
-            "src/Differ.php"
+            "src/Differ.php",
+            "src/Formatters/Stylish.php",
+            "src/Formatters/Plain.php"
         ]
     },
     "scripts": {
