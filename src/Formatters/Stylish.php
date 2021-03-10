@@ -56,7 +56,7 @@ function stringify($value, $deep = 1)
     return "{\n{$str}\n{$space}}";
 }
 
-function finallyRender($value): string
+function renderStylish($value): string
 {
     $result = render($value);
     return "{\n{$result}\n}\n";
