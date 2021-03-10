@@ -19,10 +19,11 @@ function fileToData(string $path): object
 {
     $file = file_exists(realpath($path)) ? file_get_contents($path) :
                                            file_get_contents(realpath(STORAGE_DIR .  $path));
+    $extension = pathinfo($path, PATHINFO_EXTENSION);
 
-    if (pathinfo($path)['extension'] === 'json') {
+    if ($extension === 'json') {
         $file = json_decode($file);
-    } elseif (pathinfo($path)['extension'] === 'yaml' || pathinfo($path)['extension'] === 'yml') {
+    } elseif ($extension === 'yaml' || $extension === 'yml') {
         $file = Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP);
     }
     if ($file === null) {
