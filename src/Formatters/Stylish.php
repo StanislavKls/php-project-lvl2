@@ -59,5 +59,5 @@ function stringify($value, $deep = 1)
 function renderStylish($value): string
 {
     $result = render($value);
-    return "{\n{$result}\n}\n";
+    return "{\n{$result}\n}";
 }
