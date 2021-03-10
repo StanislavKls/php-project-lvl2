@@ -36,8 +36,11 @@ function stringify($value, $deep = 1)
     if (is_bool($value)) {
         return $value ? "true" : "false";
     }
-    if (!is_object($value) && !is_array($value)) {
+    if (is_string($value)) {
         return "'{$value}'";
+    }
+    if (!is_object($value) && !is_array($value)) {
+        return "{$value}";
     }
     return "[complex value]";
 }
