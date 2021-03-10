@@ -17,8 +17,7 @@ function compareFile(string $file1, string $file2, $format): string
 }
 function fileToData(string $path): object
 {
-    $file = file_exists(realpath($path)) ? file_get_contents($path) :
-                                           file_get_contents(realpath(STORAGE_DIR .  $path));
+    $file = file_get_contents(realpath($path));
     $extension = pathinfo($path, PATHINFO_EXTENSION);
 
     if ($extension === 'json') {
