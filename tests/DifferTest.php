@@ -1,5 +1,7 @@
 <?php
 
+namespace Differ\Tests;
+
 use PHPUnit\Framework\TestCase;
 
 class DifferTest extends TestCase
