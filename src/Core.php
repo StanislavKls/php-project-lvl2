@@ -15,13 +15,12 @@ function compareFile(string $file1, string $file2, string $format): string
 }
 function fileToData(string $path): object
 {
-    $file = file_get_contents(realpath($path));
+    $file = file_get_contents(realpath($path)); /* @phpstan-ignore-line */
     $extension = pathinfo($path, PATHINFO_EXTENSION);
 
     if ($extension === 'json') {
-        $result = json_decode($file);
+        return json_decode($file); /* @phpstan-ignore-line */
     } elseif ($extension === 'yaml' || $extension === 'yml') {
-        $result = Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP);
+        return Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP);
     }
-    return $result;
 }
