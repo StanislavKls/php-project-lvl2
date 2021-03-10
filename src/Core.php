@@ -7,15 +7,13 @@ use Symfony\Component\Yaml\Yaml;
 use function Differ\Parsers\buildDiff;
 use function Differ\Render\render;
 
-const STORAGE_DIR = __DIR__ . "/../";
-
-function compareFile($file1, $file2, $format)
+function compareFile($file1, $file2, $format): string
 {
     $fileForCompare1 = fileToData($file1);
     $fileForCompare2 = fileToData($file2);
     return render(buildDiff($fileForCompare1, $fileForCompare2), $format);
 }
-function fileToData($path)
+function fileToData($path): object
 {
     $file = file_get_contents(realpath($path));
     $extension = pathinfo($path, PATHINFO_EXTENSION);

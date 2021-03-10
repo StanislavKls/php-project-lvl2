@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Plain;
 
-function renderPlain($data, $children = [])
+function renderPlain($data, $children = []): string
 {
     $filtredData = array_filter($data, fn($item) => $item['status'] !== 'equally');
 
@@ -28,7 +28,7 @@ function renderPlain($data, $children = [])
     return implode("\n", $result);
 }
 
-function stringify($value)
+function stringify($value): mixed
 {
     if ($value === null) {
         return "null";

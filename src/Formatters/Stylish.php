@@ -2,7 +2,7 @@
 
 namespace Differ\Formatters\Stylish;
 
-function render(array $data, $deep = 1, $replacer = ' ')
+function render(array $data, $deep = 1, $replacer = ' '): string
 {
     $sign = ['added' => "+", 'deleted' => "-", 'equally' => " "];
     $space = str_repeat($replacer, $deep * 4);
@@ -29,7 +29,7 @@ function render(array $data, $deep = 1, $replacer = ' ')
     return implode("\n", $arr);
 }
 
-function stringify($value, $deep = 1)
+function stringify($value, $deep = 1): mixed
 {
     if ($value === null) {
         return "null";

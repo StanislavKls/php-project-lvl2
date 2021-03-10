@@ -4,7 +4,7 @@ namespace Differ\Parsers;
 
 use function Funct\Collection\union;
 
-function buildDiff($data1, $data2)
+function buildDiff($data1, $data2): array
 {
     $keys = union(array_keys(get_object_vars($data1)), array_keys(get_object_vars($data2)));
     sort($keys);
