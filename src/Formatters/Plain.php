@@ -28,7 +28,7 @@ function renderPlain($data, $children = []): string
     return implode("\n", $result);
 }
 
-function stringify($value): mixed
+function stringify($value): string
 {
     if ($value === null) {
         return "null";

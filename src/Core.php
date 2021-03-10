@@ -23,8 +23,5 @@ function fileToData($path): object
     } elseif ($extension === 'yaml' || $extension === 'yml') {
         $file = Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP);
     }
-    if ($file === null) {
-        throw new \Exception("Data not found");
-    }
     return $file;
 }

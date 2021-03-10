@@ -29,7 +29,7 @@ function render(array $data, $deep = 1, $replacer = ' '): string
     return implode("\n", $arr);
 }
 
-function stringify($value, $deep = 1): mixed
+function stringify($value, $deep = 1): string
 {
     if ($value === null) {
         return "null";
