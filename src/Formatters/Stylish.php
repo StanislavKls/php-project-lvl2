@@ -42,12 +42,12 @@ function stringify($value, $deep = 1): string
         return $value;
     }
 
-    $keys = array_keys(get_object_vars($value));
+    $keys = array_keys(get_object_vars($value)); /* @phpstan-ignore-line */
     $baseSpace = str_repeat(' ', ($deep + 1) * 4);
     $space = str_repeat(' ', $deep * 4);
 
-    $arr = array_map(function ($key) use ($value, $baseSpace, $deep) {
-        $formattedValue = stringify($value->$key, $deep + 1);
+    $arr = array_map(function ($key) use ($value, $baseSpace, $deep): string {
+        $formattedValue = stringify($value->$key, $deep + 1); /* @phpstan-ignore-line */
         return "{$baseSpace}{$key}: {$formattedValue}";
     }, $keys);
 

@@ -6,7 +6,7 @@ function renderPlain($data, $children = []): string
 {
     $filtredData = array_filter($data, fn($item) => $item['status'] !== 'equally');
 
-    $result = array_map(function ($item) use ($children) {
+    $result = array_map(function ($item) use ($children): string {
         $status = $item['status'];
         $path = array_merge($children, [$item['key']]);
         $name = implode('.', $path);

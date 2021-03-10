@@ -8,4 +8,5 @@ function renderToJson($data): string
     if ($result !== false) {
         return $result;
     }
+    return "Error";
 }

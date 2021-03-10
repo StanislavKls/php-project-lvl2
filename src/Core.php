@@ -20,7 +20,6 @@ function fileToData(string $path): object
 
     if ($extension === 'json') {
         return json_decode($file); /* @phpstan-ignore-line */
-    } elseif ($extension === 'yaml' || $extension === 'yml') {
-        return Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP);
     }
+    return Yaml::parse($file, Yaml::PARSE_OBJECT_FOR_MAP); /* @phpstan-ignore-line */
 }

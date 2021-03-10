@@ -16,4 +16,5 @@ function render($data, $format): string
         case 'json':
             return renderToJson($data);
     }
+    return "Error";
 }
