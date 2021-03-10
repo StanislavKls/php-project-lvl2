@@ -23,6 +23,7 @@ function renderPlain($data, $children = []): string
             case 'nested':
                 return renderPlain($item['value'], $path);
         }
+        return null;
     }, $filtredData);
 
     return implode("\n", $result);
