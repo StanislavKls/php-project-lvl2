@@ -8,7 +8,7 @@ function render(array $data, $deep = 1, $replacer = ' '): string
     $space = str_repeat($replacer, $deep * 4);
     $base_space = str_repeat($replacer, ($deep * 4) - 2);
 
-    $arr = array_map(function ($item) use ($sign, $base_space, $deep, $space) {
+    $arr = array_map(function ($item) use ($sign, $base_space, $deep, $space): string {
         $key = $item['key'];
 
         if ($item['status'] === 'modifed') {
