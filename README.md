@@ -20,7 +20,7 @@ print_r($diff);
 
 'stylish' (default) and 'plain'
 
-# file1.json:
+### file1.json:
 ```
 {
   "host": "hexlet.io",
@@ -30,7 +30,7 @@ print_r($diff);
 }
 ```
 
-# file2.json:
+### file2.json:
 ```
 {
   "timeout": 20,
@@ -48,16 +48,6 @@ print_r($diff);
   + timeout: 20
   + verbose: true
 }
-```
-
-
-### stylish (default format)
-```bash
-$ genfiff filepath1 filepath2
-```
-### plain
-```bash
-$ genfiff -f plain filepath1 filepath2
 ```
 
 ## There is also a binary to run on the command line
