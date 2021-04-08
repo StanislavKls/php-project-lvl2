@@ -1,3 +1,9 @@
+<h1>Difference Calculator<img align="center" src="https://img.icons8.com/nolan/64/compare.png" alt='Logo of the project'></h1>
+  <h3>
+    Command line app and PHP package installable with Composer to search for differences between two files
+  </h3>
+</div>
+
 [![Actions Status](https://github.com/StanislavKls/php-project-lvl2/workflows/My-check/badge.svg)](https://github.com/StanislavKls/php-project-lvl2/actions)
 
 <a href="https://codeclimate.com/github/StanislavKls/php-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/de4ea06f12a665b9fdf0/maintainability" /></a>
