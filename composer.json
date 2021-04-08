@@ -2,7 +2,7 @@
     "name": "stanislavk/gendiff",
     "description": "Second project on Hexlet",
     "type": "project",
-    "license": "gnu gpl",
+    "license": "MIT",
     "authors": [
         {
             "name": "Stanislav Kletsov",
