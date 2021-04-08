@@ -9,9 +9,9 @@
 <a href="https://codeclimate.com/github/StanislavKls/php-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/de4ea06f12a665b9fdf0/maintainability" /></a>
 
 ## Composer
-
+```
 composer require stanislavk/gendiff
-
+```
 ## Uses
 ```
 <?php
