@@ -23,9 +23,9 @@ print_r($diff);
 ```
 
 ## Formats
-
+```
 'stylish' (default), 'plain' and 'json'.
-
+```
 ### file1.json:
 ```
 {
