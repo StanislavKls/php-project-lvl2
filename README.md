@@ -2,9 +2,69 @@
 
 <a href="https://codeclimate.com/github/StanislavKls/php-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/de4ea06f12a665b9fdf0/maintainability" /></a>
 
+## Composer
+
+composer require stanislavk/gendiff
+
+## Uses
+```
+<?php
+
+use function Differ\Differ\genDiff;
+
+$diff = genDiff($pathToFile1, $pathToFile2, $format = 'stylish');
+print_r($diff);
+```
+
+## Formats
+
+'stylish' (default) and 'plain'
+
+# file1.json:
+```
+{
+  "host": "hexlet.io",
+  "timeout": 50,
+  "proxy": "123.234.53.22",
+  "follow": false
+}
+```
+
+# file2.json:
+```
+{
+  "timeout": 20,
+  "verbose": true,
+  "host": "hexlet.io"
+}
+```
+## Result
+```
+{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}
+```
+
+
+### stylish (default format)
+```bash
+$ genfiff filepath1 filepath2
+```
+### plain
+```bash
+$ genfiff -f plain filepath1 filepath2
+```
+
+## There is also a binary to run on the command line
 
 Compare plane json files
 [![asciicast](https://asciinema.org/a/chJpoVRgcLtPfidxIqA9hrmkT.svg)](https://asciinema.org/a/chJpoVRgcLtPfidxIqA9hrmkT)
 
 Compare nested json files
 [![asciicast](https://asciinema.org/a/s9azSAbm4iaPmFVt6Dnt5z9OW.svg)](https://asciinema.org/a/s9azSAbm4iaPmFVt6Dnt5z9OW)
+
