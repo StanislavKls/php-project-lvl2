@@ -1,8 +1,5 @@
 <h1>Difference Calculator<img align="center" src="https://img.icons8.com/nolan/64/compare.png" alt='Logo of the project'></h1>
-  <h3>
-    Command line app and PHP package installable with Composer to search for differences between two files
-  </h3>
-</div>
+Command line app and PHP package installable with Composer to search for differences between two files
 
 [![Actions Status](https://github.com/StanislavKls/php-project-lvl2/workflows/My-check/badge.svg)](https://github.com/StanislavKls/php-project-lvl2/actions)
 
